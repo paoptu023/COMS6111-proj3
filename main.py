@@ -1,6 +1,6 @@
 import sys
 import csv
-from operator import *
+import operator
 from itertools import combinations, permutations
 
 def init():
@@ -104,17 +104,15 @@ def generate():
     return rules
 
 if __name__ == "__main__":
-    #csvin = sys.argv[0]
-    #min_supp = float(sys.argv[1])
-    #min_conf = float(sys.argv[2])
+    csvin = sys.argv[1]
+    #min_supp = float(sys.argv[2])
+    #min_conf = float(sys.argv[3])
 
-    csvin = 'test.csv'
-    min_supp = 0.7
-    min_conf = 0.8
+    min_supp = 0.2
+    min_conf = 0.7
 
     f = open(csvin, 'r')
     data = [tuple(line) for line in csv.reader(f)]
-    print data
 
     # database -- contains all transactions, a table, each row is a transaction (in tuple format)
     database = set()
@@ -130,12 +128,12 @@ if __name__ == "__main__":
     # calculate all large itemsets
     apriori()
     print '====== Frequent itemsets (min_sup =', min_supp*100, '%) ======'
-    for item_set in sorted(item_sets, reverse=True):
-        print '       [' + ','.join(item_set) + '] -- ', item_sets[item_set]*100, '%'
+    for item_set in sorted(item_sets.items(), key=operator.itemgetter(1), reverse=True):
+        print '       [' + ','.join(item_set[0]) + '] -- ', item_set[1]*100, '%'
 
     # extract rules
     rules = generate()
-    sorted_rules = sorted(rules.items(), key=lambda x : getitem(x[1], 'conf'), reverse=True)
+    sorted_rules = sorted(rules.items(), key=lambda x:operator.getitem(x[1], 'conf'), reverse=True)
 
     print ''
     print '====== High-confidence association rules (min_conf =', min_conf*100, '%) ======'
