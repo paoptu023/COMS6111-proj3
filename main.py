@@ -1,5 +1,6 @@
 import sys
 import csv
+from operator import *
 from itertools import combinations, permutations
 
 def init():
@@ -129,12 +130,14 @@ if __name__ == "__main__":
     # calculate all large itemsets
     apriori()
     print '====== Frequent itemsets (min_sup =', min_supp*100, '%) ======'
-    for item_set in item_sets:
+    for item_set in sorted(item_sets, reverse=True):
         print '       [' + ','.join(item_set) + '] -- ', item_sets[item_set]*100, '%'
 
     # extract rules
     rules = generate()
+    sorted_rules = sorted(rules.items(), key=lambda x : getitem(x[1], 'conf'), reverse=True)
+
     print ''
     print '====== High-confidence association rules (min_conf =', min_conf*100, '%) ======'
-    for rule in rules.keys():
-        print '       ' + rule + ' -- ', '(Conf:', rules[rule]['conf']*100,'%  Supp:', rules[rule]['supp']*100,'%)'
+    for rule in sorted_rules:
+        print '       ' + rule[0] + ' -- ' + '(Conf:', rule[1]['conf']*100,'%  Supp:', rule[1]['supp']*100,'%)'
