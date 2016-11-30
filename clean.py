@@ -25,8 +25,8 @@ for line in reader:
 
     if len(line[6]) == 0:
         line[6] = -1
-    else:
-        line[6] = filter(str.isdigit, line[6])
+    elif len(filter(str.isdigit, line[6])) != 0:
+        line[6] = filter(str.isdigit, line[6]) + 'minutes'
     writer.writerows([line])
 
 input_file.close()
