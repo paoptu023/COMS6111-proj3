@@ -25,7 +25,7 @@ for line in reader:
 
     if len(line[6]) == 0:
         line[6] = -1
-    elif len(filter(str.isdigit, line[6])) != 0:
+    else:
         line[6] = filter(str.isdigit, line[6]) + 'minutes'
     writer.writerows([line])
 

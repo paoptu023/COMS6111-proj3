@@ -1,4 +1,4 @@
-Route_Number,Reason,Schools_Serviced,-1,Boro,Bus_Company_Name,How_Long_Delayed,Number_Of_Students_On_The_Bus,Breakdown_or_Running_Late
+Route_Number,Reason,Schools_Serviced,-1,Boro,Bus_Company_Name,minutes,Number_Of_Students_On_The_Bus,Breakdown_or_Running_Late
 L723,Heavy Traffic,18002,00,Others,"RELIANT TRANS, INC.",15minutes,3,Running Late
 X345,Heavy Traffic,8101,00,Bronx,VAN TRANS LLC,20minutes,1,Running Late
 X355,Heavy Traffic,8101,00,Bronx,VAN TRANS LLC,15minutes,2,Running Late
@@ -3135,7 +3135,7 @@ X616,Heavy Traffic,7475,00,Bronx,G.V.C. LTD. (B2192),10minutes,8,Running Late
 K692,Heavy Traffic,20185,00,Brooklyn,"RELIANT TRANS, INC. (B232",25minutes,4,Running Late
 M418,Problem Run,4001,00,Manhattan,FIRST STEPS TRANSP INC. (,20minutes,6,Running Late
 L013,Heavy Traffic,20865,00,Brooklyn,B & F SKILLED INC.(B2192),20minutes,4,Running Late
-K493,Accident,23150,00,Brooklyn,Y & M TRANSIT CORP (B2192,?????,9,Running Late
+K493,Accident,23150,00,Brooklyn,Y & M TRANSIT CORP (B2192,minutes,9,Running Late
 Y730,Heavy Traffic,11688,00,Others,"DON THOMAS BUSES, INC. (B",-1,5,Running Late
 M913,Heavy Traffic,2002,00,Manhattan,G.V.C. LTD. (B2192),15minutes,2,Running Late
 J400,Heavy Traffic,75015,00,New Jersey,"RELIANT TRANS, INC. (B232",25minutes,2,Running Late
@@ -4004,7 +4004,7 @@ X490,Heavy Traffic,12486,00,Bronx,G.V.C. LTD. (B2192),5minutes,12,Running Late
 M927,Heavy Traffic,1867,00,Manhattan,G.V.C. LTD. (B2192),10minutes,2,Running Late
 M218,Heavy Traffic,1003,00,Manhattan,FIRST STEPS TRANSP INC. (,25minutes,2,Running Late
 M266,Heavy Traffic,2930,00,Manhattan,LEESEL TRANSP CORP (B2192,20minutes,3,Running Late
-W776,Other,75944,00,Westchester,ALL COUNTY BUS LLC (B2321,TBD,1,Running Late
+W776,Other,75944,00,Westchester,ALL COUNTY BUS LLC (B2321,minutes,1,Running Late
 M899,Heavy Traffic,2531,00,Manhattan,"THOMAS BUSES, INC. (B2321",40minutes,1,Running Late
 X058,Other,11415,00,Bronx,VAN TRANS LLC,30minutes,10,Running Late
 M704,Problem Run,1378,00,Manhattan,HOYT TRANSPORTATION CORP.,20minutes,4,Running Late
