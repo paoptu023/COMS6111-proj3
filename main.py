@@ -1,4 +1,5 @@
 import sys
+import csv
 from itertools import combinations, permutations
 
 def init():
@@ -28,7 +29,7 @@ def apriori_gen(l, k):
         helper_set.add(s)
     # join-step
     for p, q in combinations(l, 2):
-        if p[:k-2] == q[:k-2]:
+        if p[:k-3] == q[:k-3] and  :
             new_tuple = list(p)
             new_tuple.append(q[k-2])
             c_k.append(tuple(sorted(new_tuple))) # sort is important
@@ -84,33 +85,39 @@ def generate():
         if len(itemset) == 1:
             continue
         for item in itemset:
-            LHS_supp = item_sets[(item,)]
-            RHS_supp = item_sets[itemset]
+            LHS = list(itemset)
+            LHS.remove(item)
+            LHS_supp = item_sets[tuple(LHS)]
+            RHS_and_LHS_supp = item_sets[itemset]
             if LHS_supp > 0:
-                cur_conf = RHS_supp/LHS_supp
-                LHS = []
-                LHS.append(item)
-                RHS = list(itemset)
-                RHS.remove(item)
+                cur_conf = RHS_and_LHS_supp/LHS_supp
+                RHS = []
+                RHS.append(item)
                 if cur_conf >= min_conf:
                     temp = {}
-                    temp["conf"] = cur_conf
-                    temp["supp"] = item_sets[itemset]
-                    key = str(LHS) + '=>'
-                    key += str(RHS)
+                    temp['conf'] = cur_conf
+                    temp['supp'] = item_sets[itemset]
+                    key = '[' + ','.join(LHS) + '] => '
+                    key += '[' + str(RHS[0]) + ']'
                     rules[key] = temp
     return rules
 
 if __name__ == "__main__":
-    sample = [('pen', 'ink', 'diary', 'soap'), ('pen', 'ink', 'diary'), ('pen', 'diary'), ('pen', 'ink', 'soap')]
+    #csvin = sys.argv[0]
+    #min_supp = float(sys.argv[1])
+    #min_conf = float(sys.argv[2])
 
-    #min_supp = float(sys.argv[1])min_conf = float(sys.argv[2])
+    csvin = 'test.csv'
     min_supp = 0.7
     min_conf = 0.8
 
+    f = open(csvin, 'r')
+    data = [tuple(line) for line in csv.reader(f)]
+    print data
+
     # database -- contains all transactions, a table, each row is a transaction (in tuple format)
     database = set()
-    for t in sample:
+    for t in data:
         database.add(t)
 
     # the number of transactions
@@ -123,11 +130,11 @@ if __name__ == "__main__":
     apriori()
     print '====== Frequent itemsets (min_sup =', min_supp*100, '%) ======'
     for item_set in item_sets:
-        print '       [', item_set[0], '] -- ', item_sets[item_set]*100, '%'
+        print '       [' + ','.join(item_set) + '] -- ', item_sets[item_set]*100, '%'
 
     # extract rules
     rules = generate()
     print ''
     print '====== High-confidence association rules (min_conf =', min_conf*100, '%) ======'
     for rule in rules.keys():
-        print '       ', rule, ' -- ', '(Conf:', rules[rule]['conf']*100,'%  Supp:', rules[rule]['supp']*100,'%)'
+        print '       ' + rule + ' -- ', '(Conf:', rules[rule]['conf']*100,'%  Supp:', rules[rule]['supp']*100,'%)'
