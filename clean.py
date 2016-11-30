@@ -1,4 +1,4 @@
-import csv
+import csv, re
 import datetime
 
 csvin = 'Bus_Breakdown_and_Delays.csv'
@@ -11,13 +11,14 @@ writer = csv.writer(output_file)
 reader = csv.reader(input_file)
 
 for line in reader:
+    d = line[3]
     if len(line[3].split()) == 3:
-        date = datetime.datetime.strptime(line[3], '%m/%d/%Y %I:%M:%S %p').date()
-        line[3] = datetime.datetime.strftime(date, "%H")
+        date = datetime.datetime.strptime(d, '%m/%d/%Y %I:%M:%S %p')
+        line[3] = datetime.datetime.strftime(date, '%H')
     elif len(line[3].split()) == 2:
-        date = datetime.datetime.strptime(line[3], '%m/%d/%Y %H:%M').date()
-        line[3] = datetime.datetime.strftime(date, "%H")
-    else:
+        date = datetime.datetime.strptime(d, '%m/%d/%Y %H:%M')
+        line[3] = datetime.datetime.strftime(date, '%H')
+    elif len(line[3].split()) == 0:
         line[3] = -1
 
     if len(line[4]) == 0:
@@ -25,8 +26,13 @@ for line in reader:
 
     if len(line[6]) == 0:
         line[6] = -1
-    else:
-        line[6] = filter(str.isdigit, line[6]) + 'minutes'
+    elif len(line[6]) != 0:
+        non_decimal = re.compile(r'[^\d-]+')
+        time = non_decimal.sub('', line[6])
+        if 'h' in line[6].lower():
+            line[6] = time + ' HR'
+        else:
+            line[6] = time + ' MIN'
     writer.writerows([line])
 
 input_file.close()
