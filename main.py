@@ -29,7 +29,7 @@ def apriori_gen(l, k):
         helper_set.add(s)
     # join-step
     for p, q in combinations(l, 2):
-        if p[:k-3] == q[:k-3] and  :
+        if p[:k-3] == q[:k-3]:
             new_tuple = list(p)
             new_tuple.append(q[k-2])
             c_k.append(tuple(sorted(new_tuple))) # sort is important
