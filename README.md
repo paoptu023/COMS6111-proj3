@@ -41,9 +41,12 @@
     We choose this data set because we want to know when the bus breakdowns and delays happens, which is a good indication of the transportation condition in NYC. We can generate rules to know where and when the accidences occur most often, which routine is more likely to delay and so on. Besides, we can give students' parents suggestions like when should they send children to school to avoid heavy traffic.
 
     4. Use the following command to run our program:
-           python main.py <INTEGRATED-DATASET> <min_supp> <min_conf>
+    
+         `python main.py <INTEGRATED-DATASET> <min_supp> <min_conf>`
+           
        For example, 
-           python main.py bus.csv 0.5 0.7
+      
+         `python main.py bus.csv 0.25 0.8`
 
     5. Description of Internal Design:
     We follow exactly the implementation of a-priori algorithm described in Section 2.1 of the Agrawal and Srikant paper in VLDB 1994. The main steps are:
@@ -56,7 +59,8 @@
     
     6. An interesting sample run
       1. The command line specification
-          python main.py INTEGRATED-DATASET.csv 0.25 0.8
+      
+         `python main.py bus.csv 0.25 0.8`
 
       2. Explanations
           Some interesting rules:
@@ -64,19 +68,23 @@
              [07 O'Clock] => [Running Late] -- (Conf: 97.4662852472 %  Supp: 62.0608899297 %)
              [07 O'Clock, Running Late] => [Heavy Traffic] -- (Conf: 83.2285115304 %  Supp: 51.652354931 %)
              [07 O'Clock] => [Heavy Traffic] -- (Conf: 81.1197384553 %  Supp: 51.652354931 %)
+             
              7 O'Clock is the busiest time in a day and bus delays are more likely to happen at this time
              
           2. [15 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 25.5009107468 %)
              [20 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 26.9581056466 %)
+             
              most delays are 15-minute or 20-minute late
           
           3. [Bronx] => [Running Late] -- (Conf: 98.7317073171 %  Supp: 26.3335935467 %)
              [Manhattan] => [Running Late] -- (Conf: 97.3487986744 %  Supp: 30.5750715587 %) 
+             
              traffic in Bronx and Manhattan is worse than other boroughs.
             
           4. [RELIANT TRANS, INC. , Running Late] => [Heavy Traffic] -- (Conf: 95.1520912548 %  Supp: 26.0473588342 %)
              [RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 93.6776491541 %  Supp: 27.3744470466 %)
              [RELIANT TRANS, INC. ] => [Heavy Traffic] -- (Conf: 89.1362422084 %  Supp: 26.0473588342 %) 
+             
              buses from RELIANT TRANS, INC. are more likely to delay because of heavy traffic. From Google reviews we also find that this              company only gets a rating of 2.6, and people complain that they don't come on time. 
     
     7. Additional Information:
