@@ -98,7 +98,7 @@ def generate():
                     temp = {}
                     temp['conf'] = cur_conf
                     temp['supp'] = item_sets[itemset]
-                    key = '[' + ','.join(LHS) + '] => '
+                    key = '[' + ', '.join(LHS) + '] => '
                     key += '[' + str(RHS[0]) + ']'
                     rules[key] = temp
     return rules
@@ -108,9 +108,8 @@ if __name__ == "__main__":
     #min_supp = float(sys.argv[2])
     #min_conf = float(sys.argv[3])
 
-    min_supp = 0.2
-    min_conf = 0.7
-
+    min_supp = 0.25
+    min_conf = 0.8
     f = open(csvin, 'r')
     data = [tuple(line) for line in csv.reader(f)]
 
@@ -129,7 +128,7 @@ if __name__ == "__main__":
     apriori()
     print '====== Frequent itemsets (min_sup =', min_supp*100, '%) ======'
     for item_set in sorted(item_sets.items(), key=operator.itemgetter(1), reverse=True):
-        print '       [' + ','.join(item_set[0]) + '] -- ', item_set[1]*100, '%'
+        print '       [' + ', '.join(item_set[0]) + '] -- ', item_set[1]*100, '%'
 
     # extract rules
     rules = generate()
