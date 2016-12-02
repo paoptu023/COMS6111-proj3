@@ -108,7 +108,7 @@ if __name__ == "__main__":
     #min_supp = float(sys.argv[2])
     #min_conf = float(sys.argv[3])
 
-    min_supp = 0.2
+    min_supp = 0.5
     min_conf = 0.7
 
     f = open(csvin, 'r')
