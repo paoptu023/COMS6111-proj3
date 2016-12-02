@@ -17,19 +17,16 @@
     2. What (high-level) procedure you used to map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file:
       We use the following filters to get the "Bus_Breakdown_and_Delays.csv" from the original data:
         * School_Year: 2016-2017
-        * Run_Type: Special Ed AM Run or Special Ed AM Run
         * Number_of_Students_On_the_Bus > 0
         * Has_Contractor_Notified_Schools: Yes
         * Has_Contractor_Notified_Parents: Yes
         * Have_You_Alerted_OPT: Yes
-        * Has_Contractor_Notified_Schools: Yes
         * School_Age_or_PreK: School-Age
         
         
       Then we extract the hour part from the "Occurred_On" column and reformat the "How_Long_Delayed" column. And we remove some columns which are unlikely to generate rules, keeping only the following columns in our final data set:
         * Route_Number	
         * Reason	
-        * Schools_Serviced	
         * Occurred_On
         * Boro	
         * Bus_Company_Name	 
