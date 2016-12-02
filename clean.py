@@ -10,14 +10,17 @@ input_file = open(csvin, 'r')
 writer = csv.writer(output_file)
 reader = csv.reader(input_file)
 
+headers = next(reader, None)
+writer.writerow(headers)
+
 for line in reader:
     d = line[3]
     if len(line[3].split()) == 3:
         date = datetime.datetime.strptime(d, '%m/%d/%Y %I:%M:%S %p')
-        line[3] = datetime.datetime.strftime(date, '%H')
+        line[3] = datetime.datetime.strftime(date, '%H') + ' O\'Clock'
     elif len(line[3].split()) == 2:
         date = datetime.datetime.strptime(d, '%m/%d/%Y %H:%M')
-        line[3] = datetime.datetime.strftime(date, '%H')
+        line[3] = datetime.datetime.strftime(date, '%H') + ' O\'Clock'
     elif len(line[3].split()) == 0:
         line[3] = -1
 
@@ -33,6 +36,10 @@ for line in reader:
             line[6] = time + ' HR'
         else:
             line[6] = time + ' MIN'
+
+    if '(' in line[5]:
+        ind = line[5].index('(')
+        line[5] = line[5][:ind]
     writer.writerows([line])
 
 input_file.close()

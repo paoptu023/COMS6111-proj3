@@ -1,0 +1,36 @@
+====== Frequent itemsets (min_sup = 25.0 %) ======
+       [Running Late] --  96.6172261254 %
+       [Heavy Traffic] --  81.0304449649 %
+       [Heavy Traffic, Running Late] --  80.9263596149 %
+       [07 O'Clock] --  63.6742128545 %
+       [07 O'Clock, Running Late] --  62.0608899297 %
+       [07 O'Clock, Heavy Traffic] --  51.652354931 %
+       [07 O'Clock, Heavy Traffic, Running Late] --  51.652354931 %
+       [Manhattan] --  31.4077543586 %
+       [Manhattan, Running Late] --  30.5750715587 %
+       [RELIANT TRANS, INC. ] --  29.2219620088 %
+       [RELIANT TRANS, INC. , Running Late] --  27.3744470466 %
+       [20 MIN, Running Late] --  26.9581056466 %
+       [20 MIN] --  26.9581056466 %
+       [Bronx] --  26.6718709342 %
+       [Bronx, Running Late] --  26.3335935467 %
+       [Heavy Traffic, RELIANT TRANS, INC. , Running Late] --  26.0473588342 %
+       [Heavy Traffic, RELIANT TRANS, INC. ] --  26.0473588342 %
+       [15 MIN] --  25.5009107468 %
+       [15 MIN, Running Late] --  25.5009107468 %
+
+====== High-confidence association rules (min_conf = 80.0 %) ======
+       [Heavy Traffic, RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 100.0 %  Supp: 26.0473588342 %)
+       [07 O'Clock, Heavy Traffic] => [Running Late] -- (Conf: 100.0 %  Supp: 51.652354931 %)
+       [15 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 25.5009107468 %)
+       [20 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 26.9581056466 %)
+       [Heavy Traffic] => [Running Late] -- (Conf: 99.8715478484 %  Supp: 80.9263596149 %)
+       [Bronx] => [Running Late] -- (Conf: 98.7317073171 %  Supp: 26.3335935467 %)
+       [07 O'Clock] => [Running Late] -- (Conf: 97.4662852472 %  Supp: 62.0608899297 %)
+       [Manhattan] => [Running Late] -- (Conf: 97.3487986744 %  Supp: 30.5750715587 %)
+       [RELIANT TRANS, INC. , Running Late] => [Heavy Traffic] -- (Conf: 95.1520912548 %  Supp: 26.0473588342 %)
+       [RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 93.6776491541 %  Supp: 27.3744470466 %)
+       [RELIANT TRANS, INC. ] => [Heavy Traffic] -- (Conf: 89.1362422084 %  Supp: 26.0473588342 %)
+       [Running Late] => [Heavy Traffic] -- (Conf: 83.7597629949 %  Supp: 80.9263596149 %)
+       [07 O'Clock, Running Late] => [Heavy Traffic] -- (Conf: 83.2285115304 %  Supp: 51.652354931 %)
+       [07 O'Clock] => [Heavy Traffic] -- (Conf: 81.1197384553 %  Supp: 51.652354931 %)
