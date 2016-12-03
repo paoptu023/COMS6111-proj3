@@ -4,7 +4,7 @@ import operator
 from itertools import combinations, permutations
 
 def init():
-    # extract all large itemsets with size of 1 and calculate support metric
+    # extract all large itemsets with size of 1 and calculate the support metric
     cache = {}
     l1 = []
     for t in database:
@@ -33,7 +33,7 @@ def apriori_gen(l, k):
         if p[:k-3] == q[:k-3]:
             new_tuple = list(p)
             new_tuple.append(q[k-2])
-            c_k.append(tuple(sorted(new_tuple))) # sort is important
+            c_k.append(tuple(sorted(new_tuple))) 
     # prune-step
     for c in c_k:
         for sub in combinations(c, k-1):
@@ -60,6 +60,7 @@ def get_l(c_k, k):
                 cache[c] = 1.0
             else:
                 cache[c] += 1
+    # calculate support and generate l_k
     l = []
     for c in sorted(cache.keys()):
         cur_supp = cache[c]/N
@@ -81,6 +82,7 @@ def apriori():
 
 
 def generate():
+    # generate high-confidence rules
     rules = {}
     for itemset in item_sets.keys():
         if len(itemset) == 1:
@@ -105,11 +107,9 @@ def generate():
 
 if __name__ == "__main__":
     csvin = sys.argv[1]
-    #min_supp = float(sys.argv[2])
-    #min_conf = float(sys.argv[3])
+    min_supp = float(sys.argv[2])
+    min_conf = float(sys.argv[3])
 
-    min_supp = 0.25
-    min_conf = 0.8
     f = open(csvin, 'r')
     data = [tuple(line) for line in csv.reader(f)]
 
@@ -126,9 +126,14 @@ if __name__ == "__main__":
 
     # calculate all large itemsets
     apriori()
+    output = open('output.txt', 'w')
+
     print '====== Frequent itemsets (min_sup =', min_supp*100, '%) ======'
+    output.write('====== Frequent itemsets (min_sup =' + str(min_supp*100) + '%) ======' + '\n')
     for item_set in sorted(item_sets.items(), key=operator.itemgetter(1), reverse=True):
         print '       [' + ', '.join(item_set[0]) + '] -- ', item_set[1]*100, '%'
+        output.write('       [' + ', '.join(item_set[0]) + '] -- ' + str(item_set[1]*100) + '%' + '\n')
+
 
     # extract rules
     rules = generate()
@@ -136,5 +141,10 @@ if __name__ == "__main__":
 
     print ''
     print '====== High-confidence association rules (min_conf =', min_conf*100, '%) ======'
+    output.write('\n')
+    output.write('====== High-confidence association rules (min_conf =' + str(min_conf*100) + '%) ======' + '\n')
     for rule in sorted_rules:
         print '       ' + rule[0] + ' -- ' + '(Conf:', rule[1]['conf']*100,'%  Supp:', rule[1]['supp']*100,'%)'
+        output.write('       ' + rule[0] + ' -- ' + '(Conf:' + str(rule[1]['conf']*100) + '%  Supp:' + str(rule[1]['supp']*100) + '%)' + '\n')
+
+    output.close()

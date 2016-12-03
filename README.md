@@ -39,11 +39,11 @@
 
     4. Use the following command to run our program:
     
-         `python main.py <INTEGRATED-DATASET> <min_supp> <min_conf>`
+         python main.py <INTEGRATED-DATASET> <min_supp> <min_conf>
            
        For example, 
       
-         `python main.py bus.csv 0.25 0.8`
+         python main.py bus.csv 0.25 0.8
 
     5. Description of Internal Design:
     We follow exactly the implementation of a-priori algorithm described in Section 2.1 of the Agrawal and Srikant paper in VLDB 1994. The main steps are:
@@ -57,7 +57,7 @@
     6. An interesting sample run
       1. The command line specification
       
-         `python main.py bus.csv 0.25 0.8`
+         python main.py bus.csv 0.25 0.8
 
       2. Explanations
           Some interesting rules:
