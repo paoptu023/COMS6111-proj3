@@ -61,26 +61,25 @@
 
       2. Explanations
           Some interesting rules:
-          1. [07 O'Clock, Heavy Traffic] => [Running Late] -- (Conf: 100.0 %  Supp: 51.652354931 %)
-             [07 O'Clock] => [Running Late] -- (Conf: 97.4662852472 %  Supp: 62.0608899297 %)
-             [07 O'Clock, Running Late] => [Heavy Traffic] -- (Conf: 83.2285115304 %  Supp: 51.652354931 %)
-             [07 O'Clock] => [Heavy Traffic] -- (Conf: 81.1197384553 %  Supp: 51.652354931 %)
+          1. [07 O'Clock, Heavy Traffic] => [Running Late] -- (Conf: 100.0 %  Supp: 49.3277927157 %)
+             [07 O'Clock] => [Running Late] -- (Conf: 97.5080385852 %  Supp: 59.3009044243 %)
+             [07 O'Clock, Running Late] => [Heavy Traffic] -- (Conf: 83.1821929101 %  Supp: 49.3277927157 %)
+             [07 O'Clock] => [Heavy Traffic] -- (Conf: 81.1093247588 %  Supp: 49.3277927157 %)
              
              7 O'Clock is the busiest time in a day and bus delays are more likely to happen at this time
              
-          2. [15 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 25.5009107468 %)
-             [20 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 26.9581056466 %)
+          2. [20 MIN] => [Running Late] -- (Conf: 100.0 %  Supp: 26.5949645563 %)
              
-             most delays are 15-minute or 20-minute late
+             most delays are 20-minute late
           
-          3. [Bronx] => [Running Late] -- (Conf: 98.7317073171 %  Supp: 26.3335935467 %)
-             [Manhattan] => [Running Late] -- (Conf: 97.3487986744 %  Supp: 30.5750715587 %) 
+          3. [Bronx] => [Running Late] -- (Conf: 97.9981801638 %  Supp: 26.3260816426 %)
+             [Manhattan] => [Running Late] -- (Conf: 96.4511041009 %  Supp: 29.8948912246 %)
              
              traffic in Bronx and Manhattan is worse than other boroughs.
             
-          4. [RELIANT TRANS, INC. , Running Late] => [Heavy Traffic] -- (Conf: 95.1520912548 %  Supp: 26.0473588342 %)
-             [RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 93.6776491541 %  Supp: 27.3744470466 %)
-             [RELIANT TRANS, INC. ] => [Heavy Traffic] -- (Conf: 89.1362422084 %  Supp: 26.0473588342 %) 
+          4. [RELIANT TRANS, INC. , Running Late] => [Heavy Traffic] -- (Conf: 95.0184501845 %  Supp: 25.177218284 %)
+             [RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 91.1690496215 %  Supp: 26.4971889514 %)
+             [RELIANT TRANS, INC. ] => [Heavy Traffic] -- (Conf: 86.6274179983 %  Supp: 25.177218284 %)
              
              buses from RELIANT TRANS, INC. are more likely to delay because of heavy traffic. From Google reviews we also find that this              company only gets a rating of 2.6, and people complain that they don't come on time. 
     
