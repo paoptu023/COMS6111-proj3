@@ -6,16 +6,15 @@
 2. Submitted files:
     1. main.py -- the main program, implement the a-priori algorithm to extract association rules
     2. clean.py -- the program used to clean the data set
-    3. Bus_Breakdown_and_Delays.csv -- the original data set
-    4. bus.csv -- the cleaned data set we use to generate rules
-    5. READEME.md
+    3. INTEGRATED-DATASET.csv -- the cleaned data set we use to generate rules
+    4. READEME.md
     
 3. The detailed description of data set
     1. Which NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file:
       We choose the "Bus Breakdown and Delays" data set to generate the INTEGRATED-DATASET file
       
     2. What (high-level) procedure you used to map the original NYC Open Data data set(s) into your INTEGRATED-DATASET file:
-      We use the following filters to get the "Bus_Breakdown_and_Delays.csv" from the original data:
+      We use the following filters when downloading data:
         * School_Year: 2016-2017
         * Number_of_Students_On_the_Bus > 0
         * Has_Contractor_Notified_Schools: Yes
@@ -85,7 +84,5 @@
              [RELIANT TRANS, INC. ] => [Running Late] -- (Conf: 91.1690496215 %  Supp: 26.4971889514 %)
              [RELIANT TRANS, INC. ] => [Heavy Traffic] -- (Conf: 86.6274179983 %  Supp: 25.177218284 %)
              
-             buses from RELIANT TRANS, INC. are more likely to delay because of heavy traffic. From Google reviews we also find that this              company only gets a rating of 2.6, and people complain that they don't come on time. 
-    
-    7. Additional Information:
+             buses from RELIANT TRANS, INC. are more likely to delay because of heavy traffic. From Google reviews we also find that this company only gets a rating of 2.6, and people complain that they don't come on time. 
 
