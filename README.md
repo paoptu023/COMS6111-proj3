@@ -33,7 +33,11 @@
         * How_Long_Delayed	
         * Number_Of_Students_On_The_Bus	
         * Breakdown_or_Running_Late
-        
+      
+      Note:
+      There are some empty columns within the original file, we fill the empty slot in "Boro" column with "Others" and fill the
+      empty slot in "How_Long_Delayed" columns with "-1" to indicate the data is unavailable.
+
     3. What makes your choice of INTEGRATED-DATASET file interesting:
     We choose this data set because we want to know when the bus breakdowns and delays happens, which is a good indication of the transportation condition in NYC. We can generate rules to know where and when the accidences occur most often, which routine is more likely to delay and so on. Besides, we can give students' parents suggestions like when should they send children to school to avoid heavy traffic.
 
@@ -43,7 +47,7 @@
            
        For example, 
       
-         python main.py bus.csv 0.25 0.8
+         python main.py INTEGRATED-DATASET.csv 0.25 0.8
 
     5. Description of Internal Design:
     We follow exactly the implementation of a-priori algorithm described in Section 2.1 of the Agrawal and Srikant paper in VLDB 1994. The main steps are:
@@ -57,7 +61,7 @@
     6. An interesting sample run
       1. The command line specification
       
-         python main.py bus.csv 0.25 0.8
+         python main.py INTEGRATED-DATASET.csv 0.25 0.8
 
       2. Explanations
           Some interesting rules:

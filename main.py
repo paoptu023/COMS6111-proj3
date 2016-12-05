@@ -9,6 +9,8 @@ def init():
     l1 = []
     for t in database:
         for item in t:
+            if len(item) == 0:
+                continue
             if item not in cache:
                 cache[item] = 0
             cache[item] += 1
@@ -112,7 +114,7 @@ if __name__ == "__main__":
 
     f = open(csvin, 'r')
     data = [tuple(line) for line in csv.reader(f)]
-
+    
     # database -- contains all transactions, a table, each row is a transaction (in tuple format)
     database = set()
     for t in data:
