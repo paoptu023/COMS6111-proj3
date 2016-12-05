@@ -8,6 +8,7 @@
     2. clean.py -- the program used to clean the data set
     3. INTEGRATED-DATASET.csv -- the cleaned data set we use to generate rules
     4. READEME.md
+    5. example-run.txt -- the output of the interesting sample run
     
 3. The detailed description of data set
     1. Which NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file:
